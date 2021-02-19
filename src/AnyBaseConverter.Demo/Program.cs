@@ -20,7 +20,6 @@ namespace AnyBaseConverter.Demo
                 BaseConverter.BaseCharSet.Base36);
             Console.WriteLine($"{source} - {aaa} - {bbb}");
             */
-           
             GenerateSampleData();
             GenerateSampleData2();
             /*Obfuscator dd = new Obfuscator();

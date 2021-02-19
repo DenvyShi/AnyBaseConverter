@@ -149,6 +149,7 @@ namespace AnyBaseConverter
         }
         public static BigInteger ToDec(String charset, String input)
         {
+            
             // validation
             if (null == charset)
             {
