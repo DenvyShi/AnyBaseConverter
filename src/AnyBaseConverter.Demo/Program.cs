@@ -20,6 +20,7 @@ namespace AnyBaseConverter.Demo
                 BaseConverter.BaseCharSet.Base36);
             Console.WriteLine($"{source} - {aaa} - {bbb}");
             */
+            var aaa = BaseConverter.ToUrlSafe(129999999999999993);
             GenerateSampleData();
             GenerateSampleData2();
             /*Obfuscator dd = new Obfuscator();

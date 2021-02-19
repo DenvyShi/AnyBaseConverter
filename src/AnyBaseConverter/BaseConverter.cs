@@ -116,6 +116,11 @@ namespace AnyBaseConverter
             string charset = GetCharsetOf(targetBase);
             return ToBase(charset, input);
         }
+        public static string ToUrlSafe(BigInteger input)
+        {
+            string charset = GetCharsetOf(BaseCharSet.Base66_Url_Safe);
+            return ToBase(charset, input);
+        }
         /// <summary>
         ///     Converts an input string in base-n into the equivalent in base-ten based on the given charset
         /// </summary>
