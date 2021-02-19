@@ -8,6 +8,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/DenvyShi/AnyBaseConverter</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/DenvyShi/AnyBaseConverter</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>
