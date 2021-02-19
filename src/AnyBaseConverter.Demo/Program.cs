@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using Cryptography.Obfuscation;
-using SmartQrCode.Helper;
+using Cryptography.Obfuscation.Extensions;
 
 namespace AnyBaseConverter.Demo
 {
@@ -8,13 +10,19 @@ namespace AnyBaseConverter.Demo
     {
         static void Main(string[] args)
         {
-            string source = "abcafdasfasfdasdfzxcvzxvzvczxvz";
-            var aaa=BaseConverter.Convert(source, BaseConverter.BaseCharSet.Base62,
-                BaseConverter.BaseCharSet.Base10);
-            var bbb=BaseConverter.Convert(aaa, BaseConverter.BaseCharSet.Base10,
-                BaseConverter.BaseCharSet.Base62);
+            /*
+            string source = "532030012410U9999999".ToUpper();
+            int hashCode = source.GetStableHashCode();
+            source = $"{source}-{hashCode}";
+            var aaa=BaseConverter.Convert(source, BaseConverter.BaseCharSet.Base36,
+                BaseConverter.BaseCharSet.Base66_Url_Safe);
+            var bbb=BaseConverter.Convert(aaa, BaseConverter.BaseCharSet.Base66_Url_Safe,
+                BaseConverter.BaseCharSet.Base36);
             Console.WriteLine($"{source} - {aaa} - {bbb}");
-
+            */
+           
+            GenerateSampleData();
+            GenerateSampleData2();
             /*Obfuscator dd = new Obfuscator();
             var value = Int32.MaxValue;
             Random random = new Random();
@@ -25,8 +33,64 @@ namespace AnyBaseConverter.Demo
                 var b = dd.Deobfuscate(a);
                 Console.WriteLine($"{i} - {value}-{a}-{b}");
             }*/
+            
             Console.WriteLine("Hello World!");
             Console.ReadLine();
+        }
+
+        private static void GenerateSampleData2()
+        {
+            string sku = "522030008130R";
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 1; i <= 100; i++)
+            {
+                string value = $"{sku}{i.ToString().PadLeft(7, '0')}";
+                var hashCode = Math.Abs(value.GetHashCode());
+               
+                value = $"{hashCode.ToString().First()}{value}";
+                var uid = BaseConverter.Convert(value, BaseConverter.BaseCharSet.Base36_Obfuscation,
+                    BaseConverter.BaseCharSet.Base66_Url_Safe);
+                var uid2 = BaseConverter.Convert(uid, BaseConverter.BaseCharSet.Base66_Url_Safe,
+                    BaseConverter.BaseCharSet.Base36_Obfuscation);
+                if (value != uid2)
+                {
+                    int x = 1;
+                }
+
+                sb.AppendLine($"{value},{uid},https://y.esquel.cn/a/{uid}");
+            }
+
+            string result = sb.ToString();
+        }
+   
+        private static void GenerateSampleData()
+        {
+            string sku = "522030008130R";
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 1; i <= 100; i++)
+            {
+
+                string value = $"{sku}{i.ToString().PadLeft(7, '0')}";
+                var hashCode = Math.Abs(value.GetHashCode());
+
+                value = $"{hashCode.ToString().First()}{value}";
+
+                var uid = BaseConverter.Convert(value, BaseConverter.BaseCharSet.Base36_Obfuscation,
+                    BaseConverter.BaseCharSet.Base66_Url_Safe);
+                var uid2 = BaseConverter.Convert(uid, BaseConverter.BaseCharSet.Base66_Url_Safe,
+                    BaseConverter.BaseCharSet.Base36_Obfuscation);
+                if (value != uid2)
+                {
+                    int x = 1;
+                }
+
+                sb.AppendLine($"{value},{uid},https://y.esquel.cn/b/_13{uid}");
+            }
+
+            string result = sb.ToString();
+            int x1 = 1;
         }
     }
 }

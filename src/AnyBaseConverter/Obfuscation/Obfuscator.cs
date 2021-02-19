@@ -1,7 +1,6 @@
 ﻿using System;
 using AnyBaseConverter;
 using AnyBaseConverter.Obfuscation;
-using SmartQrCode.Helper;
 
 namespace Cryptography.Obfuscation
 {
@@ -66,8 +65,8 @@ namespace Cryptography.Obfuscation
                 throw new InvalidOperationException("Negative values are not supported.");*/
 
             // var baseValue =  BaseConverter.ConvertToBase(value);
-            var baseValue = BaseConverter.Convert(value.ToString(), BaseConverter.NBDBaseNAlphabet.Base10,
-                BaseConverter.NBDBaseNAlphabet.Base65_Url_Safe);
+            var baseValue = BaseConverter.Convert(value.ToString(), BaseConverter.BaseCharSet.Base10,
+                BaseConverter.BaseCharSet.Base66_Url_Safe);
             return ObfuscatorHelper.AddDummyCharacters(baseValue, Strategy, Seed);
         }
 
@@ -84,7 +83,7 @@ namespace Cryptography.Obfuscation
         {
             var valueWithoutDummyCharacters = ObfuscatorHelper.RemoveDummyCharacters(value);
             // return BaseConverter.ConvertFromBase(valueWithoutDummyCharacters);
-            return BaseConverter.Convert(valueWithoutDummyCharacters,BaseConverter.NBDBaseNAlphabet.Base65_Url_Safe, BaseConverter.NBDBaseNAlphabet.Base10);
+            return BaseConverter.Convert(valueWithoutDummyCharacters,BaseConverter.BaseCharSet.Base66_Url_Safe, BaseConverter.BaseCharSet.Base10);
         }
     }
 }

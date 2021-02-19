@@ -13,12 +13,13 @@ namespace AnyBaseConverter
         //url safe char: [0-9a-zA-Z]
         //-_.~
         //Don't change the sequence
-        internal const string CHARSET65_URL_SAFE = "0O259cdghAT34BCD~EFGHIJKL678MPefQRSUuvwVpqrsW_.XYZab1Nijklmnotxyz-";
+        private const string CHARSET66_URL_SAFE = "0O259cdghAT34BCD~EFGHIJKL678MPefQRSUuvwVpqrsW_.XYZab1Nijklmnotxyz-";
         private const string CHARSET10 = "0123456789";
         // private const string CHARSET32_NBD = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
         private const string CHARSET32_NBD = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
         private const string CHARSET32_UNIQUEID = "04C57389AZ6BYDEFGH12IJKTLMNOPQRWSUVX";
         private const string CHARSET36 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const string CHARSET36_Obfuscation = "045GH7RSTUVWXJZ89AB6QYCDEFK123LMNOPI";
         internal const string CHARSET62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
         private const string CAMBIA95 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~_!$()+,;@.:=^*?&<>[]{}%#|`/\\ \"'-";
@@ -35,8 +36,9 @@ namespace AnyBaseConverter
             Base10 = 0,
             Base32_NBD = 1,
             Base36 = 2,
+            Base36_Obfuscation = 8,
             Base62 = 3,
-            Base65_Url_Safe=4,
+            Base66_Url_Safe=4,
             Base95=5,
             Base95_NBD=6,
             Base32_UNIQUEID=7,
@@ -69,11 +71,14 @@ namespace AnyBaseConverter
                 case BaseCharSet.Base36:
                     charset = CHARSET36;
                     break;
+                case BaseCharSet.Base36_Obfuscation:
+                    charset = CHARSET36_Obfuscation;
+                    break;
                 case BaseCharSet.Base62:
                     charset = CHARSET62;
                     break;
-                case BaseCharSet.Base65_Url_Safe:
-                    charset = CHARSET65_URL_SAFE;
+                case BaseCharSet.Base66_Url_Safe:
+                    charset = CHARSET66_URL_SAFE;
                     break;
                 case BaseCharSet.Base95:
                     charset = CHARSET95;
