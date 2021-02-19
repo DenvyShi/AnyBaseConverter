@@ -66,7 +66,7 @@ namespace Cryptography.Obfuscation
 
             // var baseValue =  BaseConverter.ConvertToBase(value);
             var baseValue = BaseConverter.Convert(value.ToString(), BaseConverter.BaseCharSet.Base10,
-                BaseConverter.BaseCharSet.Base66_Url_Safe);
+                BaseConverter.BaseCharSet.Base66_Url_Safe_Custom);
             return ObfuscatorHelper.AddDummyCharacters(baseValue, Strategy, Seed);
         }
 
@@ -83,7 +83,7 @@ namespace Cryptography.Obfuscation
         {
             var valueWithoutDummyCharacters = ObfuscatorHelper.RemoveDummyCharacters(value);
             // return BaseConverter.ConvertFromBase(valueWithoutDummyCharacters);
-            return BaseConverter.Convert(valueWithoutDummyCharacters,BaseConverter.BaseCharSet.Base66_Url_Safe, BaseConverter.BaseCharSet.Base10);
+            return BaseConverter.Convert(valueWithoutDummyCharacters,BaseConverter.BaseCharSet.Base66_Url_Safe_Custom, BaseConverter.BaseCharSet.Base10);
         }
     }
 }

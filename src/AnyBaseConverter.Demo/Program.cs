@@ -15,8 +15,8 @@ namespace AnyBaseConverter.Demo
             int hashCode = source.GetStableHashCode();
             source = $"{source}-{hashCode}";
             var aaa=BaseConverter.Convert(source, BaseConverter.BaseCharSet.Base36,
-                BaseConverter.BaseCharSet.Base66_Url_Safe);
-            var bbb=BaseConverter.Convert(aaa, BaseConverter.BaseCharSet.Base66_Url_Safe,
+                BaseConverter.BaseCharSet.Base66_Url_Safe_Custom);
+            var bbb=BaseConverter.Convert(aaa, BaseConverter.BaseCharSet.Base66_Url_Safe_Custom,
                 BaseConverter.BaseCharSet.Base36);
             Console.WriteLine($"{source} - {aaa} - {bbb}");
             */
@@ -49,10 +49,10 @@ namespace AnyBaseConverter.Demo
                 var hashCode = Math.Abs(value.GetHashCode());
                
                 value = $"{hashCode.ToString().First()}{value}";
-                var uid = BaseConverter.Convert(value, BaseConverter.BaseCharSet.Base36_Obfuscation,
-                    BaseConverter.BaseCharSet.Base66_Url_Safe);
-                var uid2 = BaseConverter.Convert(uid, BaseConverter.BaseCharSet.Base66_Url_Safe,
-                    BaseConverter.BaseCharSet.Base36_Obfuscation);
+                var uid = BaseConverter.Convert(value, BaseConverter.BaseCharSet.Base36_Custom,
+                    BaseConverter.BaseCharSet.Base66_Url_Safe_Custom);
+                var uid2 = BaseConverter.Convert(uid, BaseConverter.BaseCharSet.Base66_Url_Safe_Custom,
+                    BaseConverter.BaseCharSet.Base36_Custom);
                 if (value != uid2)
                 {
                     int x = 1;
@@ -77,10 +77,10 @@ namespace AnyBaseConverter.Demo
 
                 value = $"{hashCode.ToString().First()}{value}";
 
-                var uid = BaseConverter.Convert(value, BaseConverter.BaseCharSet.Base36_Obfuscation,
-                    BaseConverter.BaseCharSet.Base66_Url_Safe);
-                var uid2 = BaseConverter.Convert(uid, BaseConverter.BaseCharSet.Base66_Url_Safe,
-                    BaseConverter.BaseCharSet.Base36_Obfuscation);
+                var uid = BaseConverter.Convert(value, BaseConverter.BaseCharSet.Base36_Custom,
+                    BaseConverter.BaseCharSet.Base66_Url_Safe_Custom);
+                var uid2 = BaseConverter.Convert(uid, BaseConverter.BaseCharSet.Base66_Url_Safe_Custom,
+                    BaseConverter.BaseCharSet.Base36_Custom);
                 if (value != uid2)
                 {
                     int x = 1;

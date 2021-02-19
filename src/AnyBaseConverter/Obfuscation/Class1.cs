@@ -128,7 +128,7 @@ namespace AnyBaseConverter
         /// <summary>
         ///     Read-only character set that represents all the characters which can be used for conversion.
         /// </summary>
-        public readonly static char[] AllCharacterSet = BaseConverter.CHARSET62.ToCharArray();
+        public readonly static char[] AllCharacterSet = BaseConverter.CHARSET_Base62.ToCharArray();
 
         /*
         public readonly static char[] AllCharacterSet =
