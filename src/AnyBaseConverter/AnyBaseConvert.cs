@@ -4,7 +4,7 @@ using System.Numerics;
 
 namespace AnyBaseConverter
 {
-    public static class BaseConverter
+    public static class AnyBaseConvert
     {
         public class MyBase
         {
@@ -16,7 +16,6 @@ namespace AnyBaseConverter
         private const string CHARSET_Base66_URL_SAFE_Custom = "0O259cdghAT34BCD~EFGHIJKL678MPefQRSUuvwVpqrsW_.XYZab1Nijklmnotxyz-";
         private const string CHARSET_Base66_URL_SAFE = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-._~";
         private const string CHARSET_Base10 = "0123456789";
-        // private const string CHARSET32_NBD = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
         private const string CHARSET_Base32_CustomV1 = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
         private const string CHARSET_Base32_CustomV2 = "04C57389AZ6BYDEFGH12IJKTLMNOPQRWSUVX";
         private const string CHARSET_Base36 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";

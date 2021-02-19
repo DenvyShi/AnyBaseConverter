@@ -64,9 +64,9 @@ namespace Cryptography.Obfuscation
             /*if (value < 0)
                 throw new InvalidOperationException("Negative values are not supported.");*/
 
-            // var baseValue =  BaseConverter.ConvertToBase(value);
-            var baseValue = BaseConverter.Convert(value.ToString(), BaseConverter.BaseCharSet.Base10,
-                BaseConverter.BaseCharSet.Base66_Url_Safe_Custom);
+            // var baseValue =  AnyBaseConvert.ConvertToBase(value);
+            var baseValue = AnyBaseConvert.Convert(value.ToString(), AnyBaseConvert.BaseCharSet.Base10,
+                AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom);
             return ObfuscatorHelper.AddDummyCharacters(baseValue, Strategy, Seed);
         }
 
@@ -82,8 +82,8 @@ namespace Cryptography.Obfuscation
         public string Deobfuscate(string value)
         {
             var valueWithoutDummyCharacters = ObfuscatorHelper.RemoveDummyCharacters(value);
-            // return BaseConverter.ConvertFromBase(valueWithoutDummyCharacters);
-            return BaseConverter.Convert(valueWithoutDummyCharacters,BaseConverter.BaseCharSet.Base66_Url_Safe_Custom, BaseConverter.BaseCharSet.Base10);
+            // return AnyBaseConvert.ConvertFromBase(valueWithoutDummyCharacters);
+            return AnyBaseConvert.Convert(valueWithoutDummyCharacters,AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom, AnyBaseConvert.BaseCharSet.Base10);
         }
     }
 }

@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Support almost all common base conversions, e.g.:Base 10, Base 32, Base 36, Base 62, Base 64, Base 66, Base 85, Base 94, Base 95. Can be used to generate URL safe unique ID like youtube.</Description>
+    <Authors>Denvy Shi</Authors>
+    <Company>ABCD</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>

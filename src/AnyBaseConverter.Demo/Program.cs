@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using Cryptography.Obfuscation;
 using Cryptography.Obfuscation.Extensions;
@@ -14,13 +15,13 @@ namespace AnyBaseConverter.Demo
             string source = "532030012410U9999999".ToUpper();
             int hashCode = source.GetStableHashCode();
             source = $"{source}-{hashCode}";
-            var aaa=BaseConverter.Convert(source, BaseConverter.BaseCharSet.Base36,
-                BaseConverter.BaseCharSet.Base66_Url_Safe_Custom);
-            var bbb=BaseConverter.Convert(aaa, BaseConverter.BaseCharSet.Base66_Url_Safe_Custom,
-                BaseConverter.BaseCharSet.Base36);
+            var aaa=AnyBaseConvert.Convert(source, AnyBaseConvert.BaseCharSet.Base36,
+                AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom);
+            var bbb=AnyBaseConvert.Convert(aaa, AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom,
+                AnyBaseConvert.BaseCharSet.Base36);
             Console.WriteLine($"{source} - {aaa} - {bbb}");
             */
-            var aaa = BaseConverter.ToUrlSafe(129999999999999993);
+            var aaa = AnyBaseConvert.ToUrlSafe(BigInteger.Parse("9999999999999999999999999999999999999999"));
             GenerateSampleData();
             GenerateSampleData2();
             /*Obfuscator dd = new Obfuscator();
@@ -49,10 +50,10 @@ namespace AnyBaseConverter.Demo
                 var hashCode = Math.Abs(value.GetHashCode());
                
                 value = $"{hashCode.ToString().First()}{value}";
-                var uid = BaseConverter.Convert(value, BaseConverter.BaseCharSet.Base36_Custom,
-                    BaseConverter.BaseCharSet.Base66_Url_Safe_Custom);
-                var uid2 = BaseConverter.Convert(uid, BaseConverter.BaseCharSet.Base66_Url_Safe_Custom,
-                    BaseConverter.BaseCharSet.Base36_Custom);
+                var uid = AnyBaseConvert.Convert(value, AnyBaseConvert.BaseCharSet.Base36_Custom,
+                    AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom);
+                var uid2 = AnyBaseConvert.Convert(uid, AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom,
+                    AnyBaseConvert.BaseCharSet.Base36_Custom);
                 if (value != uid2)
                 {
                     int x = 1;
@@ -77,10 +78,10 @@ namespace AnyBaseConverter.Demo
 
                 value = $"{hashCode.ToString().First()}{value}";
 
-                var uid = BaseConverter.Convert(value, BaseConverter.BaseCharSet.Base36_Custom,
-                    BaseConverter.BaseCharSet.Base66_Url_Safe_Custom);
-                var uid2 = BaseConverter.Convert(uid, BaseConverter.BaseCharSet.Base66_Url_Safe_Custom,
-                    BaseConverter.BaseCharSet.Base36_Custom);
+                var uid = AnyBaseConvert.Convert(value, AnyBaseConvert.BaseCharSet.Base36_Custom,
+                    AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom);
+                var uid2 = AnyBaseConvert.Convert(uid, AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom,
+                    AnyBaseConvert.BaseCharSet.Base36_Custom);
                 if (value != uid2)
                 {
                     int x = 1;
