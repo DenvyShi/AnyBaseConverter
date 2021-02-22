@@ -34,7 +34,19 @@ namespace AnyBaseConverter.Demo
                 var b = dd.Deobfuscate(a);
                 Console.WriteLine($"{i} - {value}-{a}-{b}");
             }*/
-            
+            var aaxa  =AnyBaseConvert.Convert("~~", AnyBaseConvert.BaseCharSet.Base66_Url_Safe, AnyBaseConvert.BaseCharSet.Base10);
+            var aax2a  =AnyBaseConvert.Convert("zz", AnyBaseConvert.BaseCharSet.Base62, AnyBaseConvert.BaseCharSet.Base10);
+            StringBuilder sbbase10 = new StringBuilder();
+            for (int i = 0; i < 100; i++)
+            {
+                sbbase10.AppendLine(AnyBaseConvert.Convert(i.ToString(), AnyBaseConvert.BaseCharSet.Base10,
+                    AnyBaseConvert.BaseCharSet.Base62));
+            }
+
+            string testString = "rHFjOe~P7F2vTG5f-I";
+            string base36String = AnyBaseConvert.Convert(testString,
+                AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom, AnyBaseConvert.BaseCharSet.Base36_Custom);
+            string rrr = sbbase10.ToString();
             Console.WriteLine("Hello World!");
             Console.ReadLine();
         }
@@ -73,21 +85,21 @@ namespace AnyBaseConverter.Demo
             for (int i = 1; i <= 100; i++)
             {
 
-                string value = $"{sku}{i.ToString().PadLeft(7, '0')}";
-                var hashCode = Math.Abs(value.GetHashCode());
+                string humanReadable = $"{sku}{i.ToString().PadLeft(7, '0')}";
+                var hashCode = Math.Abs(humanReadable.GetHashCode());
 
-                value = $"{hashCode.ToString().First()}{value}";
+                var randomedHumanReadable = $"{hashCode.ToString().First()}{humanReadable}";
 
-                var uid = AnyBaseConvert.Convert(value, AnyBaseConvert.BaseCharSet.Base36_Custom,
+                var uid = AnyBaseConvert.Convert(randomedHumanReadable, AnyBaseConvert.BaseCharSet.Base36_Custom,
                     AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom);
                 var uid2 = AnyBaseConvert.Convert(uid, AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom,
                     AnyBaseConvert.BaseCharSet.Base36_Custom);
-                if (value != uid2)
+                if (randomedHumanReadable != uid2)
                 {
                     int x = 1;
                 }
 
-                sb.AppendLine($"{value},{uid},https://y.esquel.cn/b/_13{uid}");
+                sb.AppendLine($"{humanReadable},{uid},https://y.esquel.cn/b/_13{uid}");
             }
 
             string result = sb.ToString();
