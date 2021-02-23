@@ -24,6 +24,7 @@ namespace AnyBaseConverter.Demo
             var aaa = AnyBaseConvert.ToUrlSafe(BigInteger.Parse("9999999999999999999999999999999999999999"));
             GenerateSampleData();
             GenerateSampleData2();
+            Test3();
             /*Obfuscator dd = new Obfuscator();
             var value = Int32.MaxValue;
             Random random = new Random();
@@ -51,8 +52,30 @@ namespace AnyBaseConverter.Demo
             Console.ReadLine();
         }
 
+        private static void Test3()
+        {
+
+            // string sku = "522030008130R";
+            string sku = "IIIIIIIIIIIIII";//Max base 36
+            long seq = 999999999999;
+            
+            string maxUniqueId = $"{sku}{seq}";
+
+            string maxSku = "ZZZZZZZZZZZZZZ";
+            string maxSkuBase16 = AnyBaseConvert.Convert(maxSku, AnyBaseConvert.BaseCharSet.Base36,
+                AnyBaseConvert.BaseCharSet.Base16);
+
+            var uid = AnyBaseConvert.Convert(maxUniqueId, AnyBaseConvert.BaseCharSet.Base36_Custom,
+                AnyBaseConvert.BaseCharSet.Base66_Url_Safe_Custom);
+            string maxSeqBase10 = "999999999999999";
+            string maxSeqBase16 = AnyBaseConvert.Convert(maxSeqBase10, AnyBaseConvert.BaseCharSet.Base10,
+                AnyBaseConvert.BaseCharSet.Base16);
+            int aa = 1;
+        }
+
         private static void GenerateSampleData2()
         {
+
             string sku = "522030008130R";
 
             StringBuilder sb = new StringBuilder();
@@ -79,8 +102,8 @@ namespace AnyBaseConverter.Demo
    
         private static void GenerateSampleData()
         {
-            string sku = "522030008130R";
 
+            string sku = "522030008130R";
             StringBuilder sb = new StringBuilder();
             for (int i = 1; i <= 100; i++)
             {

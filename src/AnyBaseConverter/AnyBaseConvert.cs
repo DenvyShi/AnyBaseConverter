@@ -18,6 +18,7 @@ namespace AnyBaseConverter
         private const string CHARSET_Base10 = "0123456789";
         private const string CHARSET_Base32_CustomV1 = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
         private const string CHARSET_Base32_CustomV2 = "04C57389AZ6BYDEFGH12IJKTLMNOPQRWSUVX";
+        private const string CHARSET_Base16 = "0123456789ABCDEF";
         private const string CHARSET_Base36 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private const string CHARSET_Base36_Custom = "045GH7RSTUVWXJZ89AB6QYCDEFK123LMNOPI";
         internal const string CHARSET_Base62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -34,6 +35,7 @@ namespace AnyBaseConverter
         public enum BaseCharSet
         {
             Base10 ,
+            Base16 ,
             Base32_CustomV1,
             Base36,
             Base36_Custom,
@@ -68,6 +70,9 @@ namespace AnyBaseConverter
             {
                 case BaseCharSet.Base10:
                     charset = CHARSET_Base10;
+                    break;
+                case BaseCharSet.Base16:
+                    charset = CHARSET_Base16;
                     break;
                 case BaseCharSet.Base32_CustomV1:
                     charset = CHARSET_Base32_CustomV1;
