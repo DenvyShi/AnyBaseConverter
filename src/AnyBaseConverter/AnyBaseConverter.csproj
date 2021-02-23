@@ -10,6 +10,10 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/DenvyShi/AnyBaseConverter</RepositoryUrl>
     <PackageProjectUrl>https://github.com/DenvyShi/AnyBaseConverter</PackageProjectUrl>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <PackageReleaseNotes>Support conversion from/to base16</PackageReleaseNotes>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
