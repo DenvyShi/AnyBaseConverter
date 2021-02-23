@@ -104,13 +104,19 @@ namespace AnyBaseConverter.Demo
         {
 
             string sku = "522030008130R";
+            string skuBase16 = AnyBaseConvert.Convert(sku, AnyBaseConvert.BaseCharSet.Base36_Custom,
+                AnyBaseConvert.BaseCharSet.Base16).PadLeft(19,'0');
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Human Readable,Unique ID, Url, EPC");
             for (int i = 1; i <= 100; i++)
             {
 
                 string humanReadable = $"{sku}{i.ToString().PadLeft(7, '0')}";
                 var hashCode = Math.Abs(humanReadable.GetHashCode());
-
+                string sequenceBase16 = AnyBaseConvert
+                    .Convert(i.ToString(), AnyBaseConvert.BaseCharSet.Base10, AnyBaseConvert.BaseCharSet.Base16)
+                    .PadLeft(13, '0');
+                string epcBase16 = $"{skuBase16}{sequenceBase16}";
                 var randomedHumanReadable = $"{hashCode.ToString().First()}{humanReadable}";
 
                 var uid = AnyBaseConvert.Convert(randomedHumanReadable, AnyBaseConvert.BaseCharSet.Base36_Custom,
@@ -122,7 +128,9 @@ namespace AnyBaseConverter.Demo
                     int x = 1;
                 }
 
-                sb.AppendLine($"{humanReadable},{uid},https://y.esquel.cn/b/_13{uid}");
+                //Humanread, Unique Id,Url
+                
+                sb.AppendLine($"{humanReadable},{uid},https://y.esquel.cn/b/_13{uid},{epcBase16}");
             }
 
             string result = sb.ToString();
